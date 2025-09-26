@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from models.customer import Customer
 from models.account import Account
 import logging
-
+#complete account services
 accounts_bp = Blueprint('accounts', __name__)
 
 @accounts_bp.route('/accounts', methods=['POST'])
