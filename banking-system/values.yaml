@@ -1,0 +1,38 @@
+accountsService:
+  name: accounts-service
+  image: dockerpilot17/accounts-service
+  tag: latest
+  port: 5001
+  replicaCount: 2  
+  env:
+    MYSQL_HOST: mysql-service
+    MYSQL_PORT: 3306
+    MYSQL_DATABASE: banking_system
+    MYSQL_USER: banking_user
+    MYSQL_PASSWORD: "root"
+
+loansService:
+  name: loans-service
+  image: dockerpilot17/loans-service
+  tag: latest
+  port: 5002
+  replicaCount: 2
+  env:
+    MYSQL_HOST: mysql-service
+    MYSQL_PORT: 3306
+    MYSQL_DATABASE: banking_system
+    MYSQL_USER: banking_user
+    MYSQL_PASSWORD: "root"
+
+transactionsService:
+  name: transactions-service
+  image: dockerpilot17/transactions-service
+  tag: latest
+  port: 5003
+  replicaCount: 2  
+  env:
+    MYSQL_HOST: mysql-service
+    MYSQL_PORT: 3306
+    MYSQL_DATABASE: banking_system
+    MYSQL_USER: banking_user
+    MYSQL_PASSWORD: "root"

@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: banking-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: banking-service
+      http:
+        paths:
+          - path: /api/accounts
+            pathType: Prefix
+            backend:
+              service:
+                name: accounts-service
+                port:
+                  number: 5001
+          - path: /api/customers
+            pathType: Prefix
+            backend:
+              service:
+                name: accounts-service
+                port:
+                  number: 5001
+          - path: /api/loans
+            pathType: Prefix
+            backend:
+              service:
+                name: loans-service
+                port:
+                  number: 5002
+          - path: /api/transactions
+            pathType: Prefix
+            backend:
+              service:
+                name: transactions-service
+                port:
+                  number: 5003
