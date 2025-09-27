@@ -36,7 +36,7 @@ def create_account():
             'account': {
                 'acc_no': account.acc_no,
                 'branch_name': account.branch_name,
-                'balance': float(account.balance),
+                'balance': float(account.balance) if account.balance is not None else 0.0,
                 'customer': customer.to_dict()
             }
         }), 201
@@ -58,7 +58,7 @@ def get_account(acc_no):
             'account': {
                 'acc_no': account['acc_no'],
                 'branch_name': account['branch_name'],
-                'balance': float(account['balance']),
+                'balance': float(account['balance']) if account['balance'] is not None else 0.0,
                 'customer': {
                     'cust_id': account['cust_id'],
                     'cust_name': account['cust_name'],
@@ -109,7 +109,7 @@ def update_account(acc_no):
             'account': {
                 'acc_no': updated_account['acc_no'],
                 'branch_name': updated_account['branch_name'],
-                'balance': float(updated_account['balance']),
+                'balance': float(updated_account['balance']) if updated_account['balance'] is not None else 0.0,
                 'customer': {
                     'cust_id': updated_account['cust_id'],
                     'cust_name': updated_account['cust_name'],
@@ -153,7 +153,7 @@ def list_accounts():
             account_list.append({
                 'acc_no': account['acc_no'],
                 'branch_name': account['branch_name'],
-                'balance': float(account['balance']),
+                'balance': float(account['balance']) if account['balance'] is not None else 0.0,
                 'customer': {
                     'cust_id': account['cust_id'],
                     'cust_name': account['cust_name'],
